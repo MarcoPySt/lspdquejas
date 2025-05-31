@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Quejas Internas - LSPD</title>
+    <link rel="icon" href="https://i.ibb.co/LDqQNf3J/LSPD.png" type="image/x-icon">
+    <style>
+        @page {
+            margin: 0.5in;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;    /*yassuo98*/
+            font-size: 12pt;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #1e3a8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 0 20px;
+        }
+        
+        .department-name {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin: 10px 0;
+        }
+        
+        .motto {
+            font-style: italic;
+            color: #666;
+            font-size: 11pt;
+        }
+        
+        .form-title {
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            font-size: 14pt;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #1e3a8a;
+            padding-bottom: 5px;
+        }
+        
+        .form-row {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .form-row.single {
+            display: block;
+        }
+        
+        .form-group {
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        .form-group:last-child {
+            margin-right: 0;
+        }
+        
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        input[type="text"], input[type="date"], input[type="time"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #666;
+            border-radius: 3px;
+            font-size: 11pt;
+            box-sizing: border-box;
+        }
+        
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        
+        .large-textarea {
+            height: 120px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .signature-section {
+            margin-top: 40px;
+            border-top: 2px solid #1e3a8a;
+            padding-top: 20px;
+        }
+        
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .signature-block {
+            width: 45%;
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #000;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 10pt;
+            color: #666;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        
+        .case-number {
+            background: #ffffcc;
+            border: 2px solid #ffcc00;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .form-section {
+                background: white;
+                border: 1px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://i.ibb.co/LDqQNf3J/LSPD.png" alt="LSPD Logo" style="width: 100px; height: 100px;">
+        </div>
+        <div class="department-name">LOS SANTOS POLICE DEPARTMENT</div>
+        <div class="motto">"Obey and Survive"</div>
+    </div>
+
+    <div class="form-title">Formulario de Queja Interna</div>
+    
+    <div class="case-number">
+        <strong>NÚMERO DE CASO: <input type="text" name="numero_caso" style="border: none; background: transparent; font-weight: bold; width: 200px; text-align: center;" placeholder="Ingrese número"></strong>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">I. INFORMACIÓN BÁSICA</div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Fecha de la Queja:</label>
+                <input type="date" name="fecha_queja">
+            </div>
+            <div class="form-group">
+                <label>Hora:</label>
+                <input type="time" name="hora_queja">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Oficial que Recibe la Queja:</label>
+                <input type="text" name="oficial_receptor" placeholder="Nombre, Rango y Placa">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">II. INFORMACIÓN DEL DENUNCIANTE</div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Nombre Completo:</label>
+                <input type="text" name="denunciante_nombre">
+            </div>
+            <div class="form-group">
+                <label>Rango:</label>
+                <input type="text" name="denunciante_rango">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Número de Placa:</label>
+                <input type="text" name="denunciante_placa">
+            </div>
+            <div class="form-group">
+                <label>Departamento/División:</label>
+                <input type="text" name="denunciante_division">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">III. INFORMACIÓN DEL OFICIAL DENUNCIADO</div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Nombre Completo:</label>
+                <input type="text" name="denunciado_nombre">
+            </div>
+            <div class="form-group">
+                <label>Rango:</label>
+                <input type="text" name="denunciado_rango">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Número de Placa:</label>
+                <input type="text" name="denunciado_placa">
+            </div>
+            <div class="form-group">
+                <label>Departamento/División:</label>
+                <input type="text" name="denunciado_division">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">IV. DETALLES DEL INCIDENTE</div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Fecha del Incidente:</label>
+                <input type="date" name="fecha_incidente">
+            </div>
+            <div class="form-group">
+                <label>Hora Aproximada:</label>
+                <input type="time" name="hora_incidente">
+            </div>
+        </div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Ubicación del Incidente:</label>
+                <input type="text" name="ubicacion_incidente" placeholder="Dirección específica o zona">
+            </div>
+        </div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Tipo de Queja:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="conducta_impropia" name="tipo_queja[]" value="conducta_impropia">
+                        <label for="conducta_impropia">Conducta Impropia</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="uso_fuerza" name="tipo_queja[]" value="uso_fuerza">
+                        <label for="uso_fuerza">Uso Excesivo de Fuerza</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="discriminacion" name="tipo_queja[]" value="discriminacion">
+                        <label for="discriminacion">Discriminación</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="negligencia" name="tipo_queja[]" value="negligencia">
+                        <label for="negligencia">Negligencia en el Deber</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="acoso" name="tipo_queja[]" value="acoso">
+                        <label for="acoso">Acoso</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="otro" name="tipo_queja[]" value="otro">
+                        <label for="otro">Otro</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Si marcó "Otro", especifique:</label>
+                <input type="text" name="otro_especificar">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">V. DESCRIPCIÓN DETALLADA DE LOS HECHOS</div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Describa detalladamente lo ocurrido (use hojas adicionales si es necesario):</label>
+                <textarea name="descripcion_hechos" class="large-textarea" placeholder="Incluya todos los detalles relevantes: qué pasó, cuándo, dónde, quién estaba presente, qué se dijo o hizo, etc."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">VI. TESTIGOS</div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Testigo 1 - Nombre:</label>
+                <input type="text" name="testigo1_nombre">
+            </div>
+            <div class="form-group">
+                <label>Rango/Cargo:</label>
+                <input type="text" name="testigo1_rango">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Testigo 2 - Nombre:</label>
+                <input type="text" name="testigo2_nombre">
+            </div>
+            <div class="form-group">
+                <label>Rango/Cargo:</label>
+                <input type="text" name="testigo2_rango">
+            </div>
+        </div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Testigos Adicionales:</label>
+                <textarea name="testigos_adicionales" placeholder="Liste otros testigos si los hay"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">VII. EVIDENCIA</div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Evidencia Disponible:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="fotos" name="evidencia[]" value="fotos">
+                        <label for="fotos">Fotografías</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="video" name="evidencia[]" value="video">
+                        <label for="video">Video</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="audio" name="evidencia[]" value="audio">
+                        <label for="audio">Grabación de Audio</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="documentos" name="evidencia[]" value="documentos">
+                        <label for="documentos">Documentos</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="bodycam" name="evidencia[]" value="bodycam">
+                        <label for="bodycam">Bodycam</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Descripción de la Evidencia:</label>
+                <textarea name="descripcion_evidencia" placeholder="Describa la evidencia disponible y su ubicación"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">VIII. ACCIÓN SOLICITADA</div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>¿Qué acción espera que se tome?</label>
+                <textarea name="accion_solicitada" placeholder="Describa qué resultado o acción disciplinaria considera apropiada"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="signature-section">
+        <div class="section-title">IX. DECLARACIÓN Y FIRMAS</div>
+        
+        <p style="text-align: justify; margin-bottom: 20px;">
+            <strong>DECLARACIÓN:</strong> Declaro bajo pena de perjurio que la información contenida en esta queja es verdadera y correcta según mi leal saber y entender. Entiendo que proporcionar información falsa puede resultar en acción disciplinaria en mi contra.
+        </p>
+        
+        <div class="signature-row">
+            <div class="signature-block">
+                <input type="text" name="firma_denunciante" placeholder="Nombre completo del denunciante" style="width: 100%; margin-bottom: 5px; text-align: center;">
+                <strong>Firma del Denunciante</strong><br>
+                Fecha: <input type="date" name="fecha_firma_denunciante" style="border: none; border-bottom: 1px solid #000;">
+            </div>
+            <div class="signature-block">
+                <input type="text" name="firma_receptor" placeholder="Nombre completo del oficial receptor" style="width: 100%; margin-bottom: 5px; text-align: center;">
+                <strong>Firma del Oficial Receptor</strong><br>
+                Fecha: <input type="date" name="fecha_firma_receptor" style="border: none; border-bottom: 1px solid #000;">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">X. USO OFICIAL ÚNICAMENTE</div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label>Asignado a:</label>
+                <input type="text" name="asignado_investigador">
+            </div>
+            <div class="form-group">
+                <label>Fecha de Asignación:</label>
+                <input type="date" name="fecha_asignacion">
+            </div>
+        </div>
+        
+        <div class="form-row single">
+            <div class="form-group">
+                <label>Notas del Supervisor:</label>
+                <textarea name="notas_supervisor"></textarea>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Los Santos Police Department - Formulario de Queja Interna</strong></p>
+        <p>Este documento es confidencial y está sujeto a las políticas internas del LSPD</p>
+        <p>Revisión: Enero 2025 | Página 1 de 1</p>
+    </div>
+</body>
+</html>
